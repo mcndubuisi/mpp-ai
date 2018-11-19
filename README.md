@@ -1,0 +1,2 @@
+# mpp-ai
+learning stuff
