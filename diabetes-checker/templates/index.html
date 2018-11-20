@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Checker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+    <!-- prevent caching - debugging -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+    <!-- user input form -->
+    <form id="form" class="topBefore" action="{{ url_for('process') }}" method="post">
+        <input type="text" name="PatientID" placeholder="PatientID" required>
+        <input type="text" name="Pregnancies" placeholder="Pregnancies" required>
+        <input type="text" name="PlasmaGlucose" placeholder="PlasmaGlucose" required>
+        <input type="text" name="DiastolicBloodPressure" placeholder="DiastolicBloodPressure" required>
+        <input type="text" name="TricepsThickness" placeholder="TricepsThickness" required>
+        <input type="text" name="SerumInsulin" placeholder="SerumInsulin" required>
+        <input type="text" name="BMI" placeholder="BMI" required>
+        <input type="text" name="DiabetesPedigree" placeholder="DiabetesPedigree" required>
+        <input type="text" name="Age" placeholder="Age" required>
+        <!-- hidden submit button - submit form with ENTER key -->
+        <input type="submit" id="submit" value="SUBMIT" hidden>
+        <!-- user prompt -->
+        <p>* Hit <b>ENTER</b> to submit</p>
+
+        <!-- placeholder for results -->
+        <div class="display-result">
+            <p id="PatientID"></p>
+            <p id="Physician"></p>
+            <p id="DiabetesPrediction"></p>
+            <p id="Probability"></p>
+        </div>
+    </form>
+    <!-- receive data from flask and stores variable as input value-->
+    <input type="text" id="output" value="{{result}}" hidden>
+</body>
+
+</html>
