@@ -1,2 +1,2 @@
 # mpp-ai
-learning stuff
+Creating personal projects while learning Artificial Intelligence with Microsoft Professional Program
